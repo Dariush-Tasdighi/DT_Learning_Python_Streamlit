@@ -1,60 +1,65 @@
 # **************************************************
-# pip install -U streamlit
-# python -m pip install -U streamlit
-#
-# pip3 install -U streamlit
-# python3 -m pip3 install -U streamlit
-# **************************************************
-
-
-# **************************************************
-# python .\streamlit_app.py
+# For Running:
+# > python .\streamlit_app.py
 # **************************************************
 # import streamlit
 
-# print("Streamlit Version:", streamlit.__version__)
+# print(f"Version of 'streamlit' package: {streamlit.__version__}")
 # **************************************************
 
 
 # **************************************************
-# python .\streamlit_app.py
+# For Running:
+# > python .\streamlit_app.py
+# **************************************************
+# Bad Practice:
+# import os, streamlit
 # **************************************************
 # import os
 # import streamlit
 
-# os.system(command="cls")
+# os.system(command="cls" if os.name == "nt" else "clear")
 
-# print("Streamlit Version:", streamlit.__version__)
+# print(f"Version of 'streamlit' package: {streamlit.__version__}")
+# print()
 # **************************************************
 
 
 # **************************************************
-# python .\streamlit_app.py
+# For Running:
+# > python .\streamlit_app.py
 # **************************************************
 # import os
 # import streamlit as st
 
-# os.system(command="cls")
+# os.system(command="cls" if os.name == "nt" else "clear")
 
-# print("Streamlit Version:", st.__version__)
+# print(f"Version of 'streamlit' package: {st.__version__}")
+# print()
 # **************************************************
 
 
 # **************************************************
 # Notes:
 #
-# 1) app.py                    --> streamlit_app.py
+# 1) app.py / main.py          --> streamlit_app.py
 # 2) python ./streamlit_app.py --> streamlit run ./streamlit_app.py
 # **************************************************
 
 
 # **************************************************
-# streamlit run ./streamlit_app.py
+# For Running:
+# > streamlit run ./streamlit_app.py
+# **************************************************
+# - https://www.w3schools.com
+#   - https://www.w3schools.com/css/default.asp
+#   - https://www.w3schools.com/html/default.asp
 # **************************************************
 # import os
 # import streamlit as st
 
-# os.system(command="cls")
+# # است Bad Practice ،Streamlit در پروژه‌های
+# os.system(command="cls" if os.name == "nt" else "clear")
 
 # st.write("Hello, World!")  # <p>
 # **************************************************
@@ -64,7 +69,7 @@
 # Note: Do Not Write Below Codes!
 #
 # import os
-# os.system(command="cls")
+# os.system(command="cls" if os.name == "nt" else "clear")
 # **************************************************
 
 
@@ -97,13 +102,13 @@
 # **************************************************
 # import streamlit as st
 
-# st.header(body="Dariush Tasdighi")  # <h2> --> Best Practice
+# st.header(body="Dariush Tasdighi (1)")  # <h2> --> Best Practice
 
-# st.markdown(body="## Dariush Tasdighi")  # <h2>
+# st.markdown(body="## Dariush Tasdighi (2)")  # <h2>
 
-# st.markdown(body="<h2>Dariush Tasdighi</h2>")  # می‌کند Encode به خاطر مسائل امنیتی
+# st.markdown(body="<h2>Dariush Tasdighi (3)</h2>")  # می‌کند Encode به خاطر مسائل امنیتی
 
-# st.markdown(body="<h2>Dariush Tasdighi</h2>", unsafe_allow_html=True)
+# st.markdown(body="<h2>Dariush Tasdighi (4)</h2>", unsafe_allow_html=True)
 # **************************************************
 
 
@@ -112,22 +117,22 @@
 
 # st.header(body="Sample (1)")
 
-# st.markdown(body="# Dariush Tasdighi")
-# st.markdown(body="## Dariush Tasdighi")
-# st.markdown(body="### Dariush Tasdighi")
-# st.markdown(body="#### Dariush Tasdighi")
-# st.markdown(body="##### Dariush Tasdighi")
-# st.markdown(body="###### Dariush Tasdighi")
-# st.divider()
+# st.markdown(body="# Dariush Tasdighi (1)")
+# st.markdown(body="## Dariush Tasdighi (2)")
+# st.markdown(body="### Dariush Tasdighi (3)")
+# st.markdown(body="#### Dariush Tasdighi (4)")
+# st.markdown(body="##### Dariush Tasdighi (5)")
+# st.markdown(body="###### Dariush Tasdighi (6)")
+# st.divider()  # <hr>
 
 # st.header(body="Sample (2)")
 
-# st.write("# Dariush Tasdighi")
-# st.write("## Dariush Tasdighi")
-# st.write("### Dariush Tasdighi")
-# st.write("#### Dariush Tasdighi")
-# st.write("##### Dariush Tasdighi")
-# st.write("###### Dariush Tasdighi")
+# st.write("# Dariush Tasdighi (1)")
+# st.write("## Dariush Tasdighi (2)")
+# st.write("### Dariush Tasdighi (3)")
+# st.write("#### Dariush Tasdighi (4)")
+# st.write("##### Dariush Tasdighi (5)")
+# st.write("###### Dariush Tasdighi (6)")
 # st.divider()
 
 # # body = """# Dariush Tasdighi
@@ -137,18 +142,18 @@
 # # ##### Dariush Tasdighi
 # # ###### Dariush Tasdighi"""
 
-# # body = """
+# # body = """\
 # # # Dariush Tasdighi
 # # ## Dariush Tasdighi
 # # ### Dariush Tasdighi
 # # #### Dariush Tasdighi
 # # ##### Dariush Tasdighi
-# # ###### Dariush Tasdighi
+# # ###### Dariush Tasdighi\
 # # """
 
 # st.header(body="Sample (3)")
 
-# body = """\
+# body = """
 # # Dariush Tasdighi
 # ## Dariush Tasdighi
 # ### Dariush Tasdighi
@@ -159,50 +164,76 @@
 
 # st.markdown(body=body)
 # st.divider()
-
-# st.header(body="Sample (4)")
-
-# st.write(body)
-# st.divider()
 # **************************************************
 
 
 # **************************************************
+# Emoji:
+#
 # https://gitlab.com/-/snippets/2526872
 # https://gist.github.com/rxaviers/7360908
 # https://gohugo.io/quick-reference/emojis
 # https://github.com/ikatyang/emoji-cheat-sheet
+# https://streamlit-emoji-shortcodes-streamlit-app-gwckff.streamlit.app
 # https://dev.to/nikolab/complete-list-of-github-markdown-emoji-markup-5aia
+#
+# Material:
+#
+# https://fonts.google.com/icons?icon.set=Material+Symbols&icon.style=Rounded
 # **************************************************
 
 
 # **************************************************
 # import streamlit as st
 
-# # نکته مهم: این دستور باید اول نوشته شود
-# # st.set_page_config(page_title="Dariush Tasdighi", page_icon="👋")
-# st.set_page_config(page_title="Dariush Tasdighi", page_icon="👋", layout="wide")
+# st.set_page_config(page_title="Dariush Tasdighi", page_icon="👋")
+# # st.set_page_config(page_title="Dariush Tasdighi", page_icon=":wave:")
+# # st.set_page_config(
+# #     layout="wide",  # Default: "centered"
+# #     page_icon="👋",
+# #     page_title="Dariush Tasdighi",
+# # )
+
+# st.header(body="I'm Dariush Tasdighi")
+# **************************************************
+
+
+# **************************************************
+# import streamlit as st
+
+# st.set_page_config(
+#     page_icon="👋",
+#     page_title="Dariush Tasdighi",
+# )
 
 # st.header(body="Dariush")
+# st.divider()
 # st.header(body="👋 Dariush")
+# st.divider()
 # st.header(body=":wave: Dariush")
+# st.divider()
+
+# # “blue”, “green”, “orange”, “red”, “violet”, “gray”/"grey", or “rainbow”
 # st.header(body="Dariush", divider="rainbow")
 # **************************************************
 
 
 # **************************************************
+# title()   -> Does not have divider
+# header()  -> Has divider
+# subheader -> Has divider
+# **************************************************
 # import streamlit as st
 
-# st.title(body="👋 Welcome to Dariush's Streamlit App!")  # <h1>
-# st.header(body="👋 Welcome to Dariush's Streamlit App!")  # <h2>
-# st.subheader(body="👋 Welcome to Dariush's Streamlit App!")  # <h3>
+# st.title(body="👋 Welcome to My Site!")  # <h1>
+# st.header(body="👋 Welcome to My Site!")  # <h2>
+# st.subheader(body="👋 Welcome to  My Site!")  # <h3>
 
 # st.markdown(body="Hello, _Dariush_! :kiss:")  # (_) --> Italic
 # st.markdown(body="Hello, **Dariush**! :computer:")  # (**) --> Bold
 # st.divider()
 
-# st.write("Hello, _Dariush_! :kiss:")
-# st.write("Hello, **Dariush**! :computer:")
+# st.write("Hello, Dariush! :material/thumb_up:")
 # st.divider()
 
 # st.caption(body="This is a small text!")
@@ -211,7 +242,7 @@
 # st.write("[Learn More](https://IranianExperts.ir)")  # Link (Anchor)
 # st.divider()
 
-# code_example = """
+# code_example: str = """
 # def greet(name):
 #     result = f'Hello, {name}!'
 #     return result
@@ -237,7 +268,7 @@
 # st.success(body="Success")
 # st.divider()
 
-# ex = RuntimeError("This is an exception of type RuntimeError")
+# ex = RuntimeError("This is an exception of type RuntimeError!")
 # st.exception(exception=ex)
 # st.divider()
 # **************************************************
@@ -249,6 +280,7 @@
 # import os
 # import streamlit as st
 
+# # Best Practice
 # # آدرس‌دهی نسبی، نسبت به جایی که هستیم
 # image_file_path: str = "./static/images/dariush_tasdighi.jpg"
 
@@ -257,8 +289,9 @@
 # st.write("Image File Path:", image_file_path)
 # st.divider()
 
+# # Bad Practice
 # # آدرس‌دهی فیزیکی
-# # C:\Program Files\...
+# # D:\Source_Codes\DT_Learning_Python_AI_Streamlit\static\images\dariush_tasdighi.jpg
 # image_file_path = os.path.join(os.getcwd(), "static", "images", "dariush_tasdighi.jpg")
 
 # st.image(image=image_file_path, width=200)
@@ -270,21 +303,25 @@
 # **************************************************
 # import streamlit as st
 
-# pressed = st.button(label="Press Me")
+# pressed: bool = st.button(label="Press Me")
 
 # if pressed:
 #     st.write("You pressed the button!")
 # **************************************************
+
 
 # **************************************************
 # Learning: toast()
 # **************************************************
 # import streamlit as st
 
-# pressed = st.button(label="Press Me")
+# pressed: bool = st.button(label="Press Me")
 
 # if pressed:
 #     st.toast(body="Wow! You did it...", icon="👋")
+#     # st.toast(body="Wow! You did it...", icon="👋", duration="long")
+#     # st.toast(body="Wow! You did it...", icon="👋", duration="short")  # Default: 'short'
+#     # st.toast(body="Wow! You did it...", icon="👋", duration="infinite")
 
 #     st.write("You pressed the button!")
 # **************************************************
@@ -295,13 +332,13 @@
 # **************************************************
 # import streamlit as st
 
-# button_1_pressed = st.button(label="Button (1)")
+# button_1_pressed: bool = st.button(label="Button (1)")
 
 # if button_1_pressed:
 #     st.snow()
 #     st.write("You pressed the button (1)!")
 
-# button_2_pressed = st.button(label="Button (2)")
+# button_2_pressed: bool = st.button(label="Button (2)")
 
 # if button_2_pressed:
 #     st.balloons()
@@ -320,32 +357,48 @@
 
 # **************************************************
 # Python Note!
-#
-# python .\streamlit_app.py
+# For Running: python .\streamlit_app.py
 # **************************************************
 # import os
 
-# os.system(command="cls")
+# os.system(command="cls" if os.name == "nt" else "clear")
 
-# name = ""
-# # name = None
-# # name = "Dariush"
+# name = ""  # NOK
+# # name = None  # NOK
+# # name = "     "  # OK
+# # name = "Dariush"  # OK
 
 # if name:
-#     print("Name is not None! and is not Null String")
+#     print("Name is not None! and is not Null String.")
 
 # if name is not None and name != "":
-#     print("Name is not None! and is not Null String")
+#     print("Name is not None! and is not Null String.")
 # **************************************************
 
 
 # **************************************************
 # import streamlit as st
 
-# name = st.text_input(label="Name")
+# name: str = st.text_input(label="Name")
 
 # # if name is not None and name != "":
 # #     st.write(f"Hello, {name}!")
+
+# if name:
+#     st.write(f"Hello, {name}!")
+# **************************************************
+
+
+# **************************************************
+# import streamlit as st
+
+# name: str = st.text_input(label="Name")
+
+# name = name.strip()
+
+# # در این مثال خاص، دستور ذیل نیازی نیست
+# # if name:
+# #     name = name.strip()
 
 # if name:
 #     st.write(f"Hello, {name}!")
@@ -359,7 +412,7 @@
 
 # number: int = 0
 
-# pressed = st.button(label="Press Me")
+# pressed: bool = st.button(label="Press Me")
 
 # if pressed:
 #     number += 1
@@ -375,15 +428,17 @@
 # # مهم: دستور ذیل صحیح نمی‌باشد
 # # st.session_state.number = 0
 
-# # if not st.session_state.get(key="number"):
+# # Solution (1)
+# # if not st.session_state.get("number"):
 # #     st.session_state.number = 0
 
 # # OR
 
+# # Solution (2)
 # if "number" not in st.session_state:
 #     st.session_state.number = 0
 
-# pressed = st.button(label="Press Me")
+# pressed: bool = st.button(label="Press Me")
 
 # if pressed:
 #     st.session_state.number += 1
@@ -392,26 +447,25 @@
 
 
 # **************************************************
-# **************************************************
-# **************************************************
-# **************************************************
-# **************************************************
-
-
-# **************************************************
 # Create Chatbot Step by Step
 # **************************************************
 # import streamlit as st
 
-# st.set_page_config(page_title="DT Chatbot", page_icon="👋")
+# st.set_page_config(
+#     page_icon="👋",
+#     page_title="DT Chatbot",
+# )
 
 # st.header(body="DT Chatbot", divider="rainbow")
 
+# # NEW
 # st.chat_input(placeholder="Type your question here...")
 
+# # NEW
 # with st.chat_message(name="AI"):
 #     st.write("Hello! How can I help you?")
 
+# # NEW
 # with st.chat_message(name="USER"):  # "User" OR "Human" OR "HUMAN"
 #     st.write("I want to know about your products.")
 # **************************************************
@@ -424,7 +478,10 @@
 # AI: str = "AI"
 # USER: str = "USER"
 
-# st.set_page_config(page_title="DT Chatbot", page_icon="👋")
+# st.set_page_config(
+#     page_icon="👋",
+#     page_title="DT Chatbot",
+# )
 
 # # New
 # with st.sidebar:
@@ -448,7 +505,10 @@
 # AI: str = "AI"
 # USER: str = "USER"
 
-# st.set_page_config(page_title="DT Chatbot", page_icon="👋")
+# st.set_page_config(
+#     page_icon="👋",
+#     page_title="DT Chatbot",
+# )
 
 # with st.sidebar:
 #     st.subheader(body="Settings", divider="rainbow")
@@ -464,6 +524,7 @@
 #         st.write(user_prompt)
 
 #     with st.chat_message(name=AI):
+#         # NEW
 #         assistant_answer: str = f"I don't know! {user_prompt}"
 #         st.write(assistant_answer)
 # **************************************************
@@ -477,12 +538,19 @@
 
 
 # # New
-# def get_assistant_answer(user_prompt: str) -> str:
+# def chat(user_prompt: str) -> str:
+#     """
+#     Chat function.
+#     """
+
 #     assistant_answer: str = f"I don't know! {user_prompt}"
 #     return assistant_answer
 
 
-# st.set_page_config(page_title="DT Chatbot", page_icon="👋")
+# st.set_page_config(
+#     page_icon="👋",
+#     page_title="DT Chatbot",
+# )
 
 # with st.sidebar:
 #     st.subheader(body="Settings", divider="rainbow")
@@ -496,7 +564,10 @@
 #     user_prompt = user_prompt.strip()
 
 # if user_prompt:
-#     assistant_answer: str = get_assistant_answer(user_prompt=user_prompt)
+#     # NEW
+#     assistant_answer: str = chat(
+#         user_prompt=user_prompt,
+#     )
 
 #     with st.chat_message(name=USER):
 #         st.write(user_prompt)
@@ -515,16 +586,21 @@
 # USER: str = "USER"
 
 
-# def get_assistant_answer(user_prompt: str) -> str:
+# def chat(user_prompt: str) -> str:
+#     """
+#     Chat function.
+#     """
+
 #     assistant_answer: str = f"I don't know! {user_prompt}"
 #     return assistant_answer
 
 
-# # New
-# # messages = []
-# messages = [{"role": "assistant", "content": "Hello, I'm Dariush. How can I help you?"}]
+# messages: list[dict] = []
 
-# st.set_page_config(page_title="DT Chatbot", page_icon="👋")
+# st.set_page_config(
+#     page_icon="👋",
+#     page_title="DT Chatbot",
+# )
 
 # with st.sidebar:
 #     st.subheader(body="Settings", divider="rainbow")
@@ -538,10 +614,16 @@
 
 # if user_prompt:
 #     # New
-#     messages.append({"role": "user", "content": user_prompt})
-#     assistant_answer: str = get_assistant_answer(user_prompt=user_prompt)
-#     messages.append({"role": "assistant", "content": assistant_answer})
+#     user_message: dict = {"role": "user", "content": user_prompt}
+#     messages.append(user_message)
 
+#     assistant_answer: str = chat(user_prompt=user_prompt)
+
+#     # NEW
+#     assistant_message: dict = {"role": "assistant", "content": assistant_answer}
+#     messages.append(assistant_message)
+
+# # NEW
 # st.write(messages)
 # **************************************************
 
@@ -555,18 +637,23 @@
 # USER: str = "USER"
 
 
-# def get_assistant_answer(user_prompt: str) -> str:
+# def chat(user_prompt: str) -> str:
+#     """
+#     Chat function.
+#     """
+
 #     assistant_answer: str = f"I don't know! {user_prompt}"
 #     return assistant_answer
 
 
+# # NEW
 # if "messages" not in st.session_state:
-#     # st.session_state.messages = []
-#     st.session_state.messages = [
-#         {"role": "assistant", "content": "Hello, I'm Dariush. How can I help you?"}
-#     ]
+#     st.session_state.messages = []
 
-# st.set_page_config(page_title="DT Chatbot", page_icon="👋")
+# st.set_page_config(
+#     page_icon="👋",
+#     page_title="DT Chatbot",
+# )
 
 # with st.sidebar:
 #     st.subheader(body="Settings", divider="rainbow")
@@ -579,10 +666,17 @@
 #     user_prompt = user_prompt.strip()
 
 # if user_prompt:
-#     st.session_state.messages.append({"role": "user", "content": user_prompt})
-#     assistant_answer: str = get_assistant_answer(user_prompt=user_prompt)
-#     st.session_state.messages.append({"role": "assistant", "content": assistant_answer})
+#     user_message: dict = {"role": "user", "content": user_prompt}
+#     # New
+#     st.session_state.messages.append(user_message)
 
+#     assistant_answer: str = chat(user_prompt=user_prompt)
+
+#     assistant_message: dict = {"role": "assistant", "content": assistant_answer}
+#     # NEW
+#     st.session_state.messages.append(assistant_message)
+
+# # NEW
 # st.write(st.session_state.messages)
 # **************************************************
 
@@ -590,23 +684,33 @@
 # **************************************************
 # Final Code! (English)
 # **************************************************
+# # NEW
+# import time
 # import streamlit as st
 
 # AI: str = "AI"
 # USER: str = "USER"
 
 
-# def get_assistant_answer(user_prompt: str) -> str:
+# def chat(user_prompt: str) -> str:
+#     """
+#     Chat function.
+#     """
+
+#     # NEW
+#     time.sleep(5)
+
 #     assistant_answer: str = f"I don't know! {user_prompt}"
 #     return assistant_answer
 
 
 # if "messages" not in st.session_state:
-#     st.session_state.messages = [
-#         {"role": "assistant", "content": "Hello, I'm Dariush. How can I help you?"}
-#     ]
+#     st.session_state.messages = []
 
-# st.set_page_config(page_title="DT Chatbot", page_icon="👋")
+# st.set_page_config(
+#     page_icon="👋",
+#     page_title="DT Chatbot",
+# )
 
 # with st.sidebar:
 #     st.subheader(body="Settings", divider="rainbow")
@@ -619,12 +723,73 @@
 #     user_prompt = user_prompt.strip()
 
 # if user_prompt:
-#     st.session_state.messages.append({"role": "user", "content": user_prompt})
-#     assistant_answer: str = get_assistant_answer(user_prompt=user_prompt)
-#     st.session_state.messages.append({"role": "assistant", "content": assistant_answer})
+#     user_message: dict = {"role": "user", "content": user_prompt}
+#     st.session_state.messages.append(user_message)
+
+#     assistant_answer: str = chat(user_prompt=user_prompt)
+
+#     assistant_message: dict = {"role": "assistant", "content": assistant_answer}
+#     st.session_state.messages.append(assistant_message)
 
 # # st.write(st.session_state.messages)
+
+# # NEW
+# for message in st.session_state.messages:
+#     if message["role"] == "user":
+#         with st.chat_message(name=USER):
+#             st.write(message["content"])
+#     elif message["role"] == "assistant":
+#         with st.chat_message(name=AI):
+#             st.write(message["content"])
+
 # # for index, message in enumerate(st.session_state.messages):
+# **************************************************
+
+
+# **************************************************
+# Final Code! (English) with Ollama
+# **************************************************
+# import streamlit as st
+
+# # NEW
+# import dt_ollama as ollama
+
+# AI: str = "AI"
+# USER: str = "USER"
+
+# if "messages" not in st.session_state:
+#     st.session_state.messages = []
+
+# st.set_page_config(
+#     page_icon="👋",
+#     page_title="DT Chatbot",
+# )
+
+# with st.sidebar:
+#     st.subheader(body="Settings", divider="rainbow")
+
+# st.header(body="DT Chatbot", divider="rainbow")
+
+# user_prompt: str | None = st.chat_input(placeholder="Type your question here...")
+
+# if user_prompt:
+#     user_prompt = user_prompt.strip()
+
+# if user_prompt:
+#     user_message: dict = {"role": "user", "content": user_prompt}
+#     st.session_state.messages.append(user_message)
+
+#     # NEW
+#     assistant_answer, _, _ = ollama.chat(
+#         messages=st.session_state.messages,
+#     )
+
+#     # NEW
+#     if not assistant_answer:
+#         st.session_state.messages.pop()
+#     else:
+#         assistant_message: dict = {"role": "assistant", "content": assistant_answer}
+#         st.session_state.messages.append(assistant_message)
 
 # for message in st.session_state.messages:
 #     if message["role"] == "user":
@@ -644,24 +809,12 @@
 # AI: str = "AI"
 # USER: str = "USER"
 
-
-# def get_assistant_answer(user_prompt: str) -> str:
-#     assistant_answer: str = f"متاسفانه من پاسخ سوال شما را نمی‌دانم! {user_prompt}"
-#     return assistant_answer
-
-
-# if "messages" not in st.session_state:
-#     st.session_state.messages = [
-#         {"role": "assistant", "content": "سلام! من داریوش هستم، چه کمکی می‌تونم بکنم؟"}
-#     ]
-
-# st.set_page_config(page_title="DT Chatbot", page_icon="👋", layout="wide")
-
+# # NEW
 # STREAMLIT_STYLE: str = """
 # <style>
 #     @import url('https://fonts.cdnfonts.com/css/iransansx');
 
-#     html, body, p, h1, h2, h3, h4, h5, h6, input, textarea {
+#     html, body, p, h1, h2, h3, h4, h5, h6, input, textarea, li {
 #         font-family: 'IRANSansX', tahoma !important;
 #     }
 
@@ -672,7 +825,111 @@
 # </style>
 # """
 
-# st.markdown(body=STREAMLIT_STYLE, unsafe_allow_html=True)
+
+# def chat(user_prompt: str) -> str:
+#     """
+#     Chat function.
+#     """
+
+#     # NEW
+#     assistant_answer: str = f"متاسفانه من پاسخ سوال شما را نمی‌دانم! {user_prompt}"
+#     return assistant_answer
+
+
+# if "messages" not in st.session_state:
+#     st.session_state.messages = []
+
+# st.set_page_config(
+#     page_icon="👋",
+#     page_title="DT Chatbot",
+# )
+
+# # NEW
+# st.markdown(
+#     body=STREAMLIT_STYLE,
+#     unsafe_allow_html=True,
+# )
+
+# with st.sidebar:
+#     # NEW
+#     st.subheader(body="تنظیمات", divider="rainbow")
+
+# # NEW
+# st.header(body="به ربات داریوش تصدیقی خوش آمدید!", divider="rainbow")
+
+# user_prompt: str | None = st.chat_input(
+#     # NEW
+#     placeholder="لطفا سوال خودتان را اینجا بپرسید..."
+# )
+
+# if user_prompt:
+#     user_prompt = user_prompt.strip()
+
+# if user_prompt:
+#     user_message: dict = {"role": "user", "content": user_prompt}
+#     st.session_state.messages.append(user_message)
+
+#     assistant_answer: str = chat(user_prompt=user_prompt)
+
+#     assistant_message: dict = {"role": "assistant", "content": assistant_answer}
+#     st.session_state.messages.append(assistant_message)
+
+# for message in st.session_state.messages:
+#     if message["role"] == "user":
+#         with st.chat_message(name=USER):
+#             st.write(message["content"])
+#     elif message["role"] == "assistant":
+#         with st.chat_message(name=AI):
+#             st.write(message["content"])
+# **************************************************
+
+
+# **************************************************
+# Final Code! (Persian)
+# **************************************************
+# import streamlit as st
+# import dt_ollama as ollama
+
+# AI: str = "AI"
+# USER: str = "USER"
+
+# STREAMLIT_STYLE: str = """
+# <style>
+#     @import url('https://fonts.cdnfonts.com/css/iransansx');
+
+#     html, body, p, h1, h2, h3, h4, h5, h6, input, textarea, li {
+#         font-family: 'IRANSansX', tahoma !important;
+#     }
+
+#     .block-container, section, input, textarea {
+#         direction: rtl;
+#         text-align: justify;
+#     }
+# </style>
+# """
+
+
+# def get_assistant_answer(user_prompt: str) -> str:
+#     """
+#     Get assistant answer.
+#     """
+
+#     assistant_answer: str = f"متاسفانه من پاسخ سوال شما را نمی‌دانم! {user_prompt}"
+#     return assistant_answer
+
+
+# if "messages" not in st.session_state:
+#     st.session_state.messages = []
+
+# st.set_page_config(
+#     page_icon="👋",
+#     page_title="DT Chatbot",
+# )
+
+# st.markdown(
+#     body=STREAMLIT_STYLE,
+#     unsafe_allow_html=True,
+# )
 
 # with st.sidebar:
 #     st.subheader(body="تنظیمات", divider="rainbow")
@@ -687,9 +944,18 @@
 #     user_prompt = user_prompt.strip()
 
 # if user_prompt:
-#     st.session_state.messages.append({"role": "user", "content": user_prompt})
-#     assistant_answer: str = get_assistant_answer(user_prompt=user_prompt)
-#     st.session_state.messages.append({"role": "assistant", "content": assistant_answer})
+#     user_message: dict = {"role": "user", "content": user_prompt}
+#     st.session_state.messages.append(user_message)
+
+#     assistant_answer, _, _ = ollama.chat(
+#         messages=st.session_state.messages,
+#     )
+
+#     if not assistant_answer:
+#         st.session_state.messages.pop()
+#     else:
+#         assistant_message: dict = {"role": "assistant", "content": assistant_answer}
+#         st.session_state.messages.append(assistant_message)
 
 # for message in st.session_state.messages:
 #     if message["role"] == "user":
@@ -702,55 +968,62 @@
 
 
 # **************************************************
-import streamlit as st
-import chatbot_constants as constants
-import chatbot_functions as functions
+# **************************************************
+# **************************************************
+# **************************************************
+# **************************************************
 
-functions.set_page_config()
-functions.initial_session_state()
 
-with st.sidebar:
-    st.subheader(body=constants.SETTINGS, divider="rainbow")
+# **************************************************
+# import streamlit as st
+# import chatbot_constants as constants
+# import chatbot_functions as functions
 
-    st.session_state.model_name = st.radio(
-        index=0,
-        options=constants.MODELS,
-        label=constants.SELECT_YOUR_MODEL,
-    ).strip()
+# functions.set_page_config()
+# functions.initial_session_state()
 
-    st.write(constants.SELECTED_MODEL, st.session_state.model_name)
-    st.divider()
+# with st.sidebar:
+#     st.subheader(body=constants.SETTINGS, divider="rainbow")
 
-    st.markdown(body=constants.ABOUT, unsafe_allow_html=True)
-    st.divider()
+#     st.session_state.model_name = st.radio(
+#         index=0,
+#         options=constants.MODELS,
+#         label=constants.SELECT_YOUR_MODEL,
+#     ).strip()
 
-st.header(body=constants.PAGE_HEADER, divider="rainbow")
+#     st.write(constants.SELECTED_MODEL, st.session_state.model_name)
+#     st.divider()
 
-if not st.session_state.model_name:
-    st.error(body=constants.ERROR_YOU_DID_NOT_SPECIFY_MODEL_NAME)
+#     st.markdown(body=constants.ABOUT, unsafe_allow_html=True)
+#     st.divider()
 
-if st.session_state.model_name:
-    user_prompt: str | None = st.chat_input(
-        placeholder=constants.USER_PROMPT_PLACEHOLDER
-    )
+# st.header(body=constants.PAGE_HEADER, divider="rainbow")
 
-    if user_prompt:
-        user_prompt = user_prompt.strip()
+# if not st.session_state.model_name:
+#     st.error(body=constants.ERROR_YOU_DID_NOT_SPECIFY_MODEL_NAME)
 
-    if user_prompt:
-        st.session_state.messages.append({"role": "user", "content": user_prompt})
-        assistant_answer = functions.get_assistant_answer(user_prompt=user_prompt)
-        st.session_state.messages.append(
-            {"role": "assistant", "content": assistant_answer}
-        )
+# if st.session_state.model_name:
+#     user_prompt: str | None = st.chat_input(
+#         placeholder=constants.USER_PROMPT_PLACEHOLDER
+#     )
 
-    for index, message in enumerate(st.session_state.messages):
-        if message["role"] == "user":
-            with st.chat_message(name=constants.USER):
-                st.write(message["content"])
-        elif message["role"] == "assistant":
-            with st.chat_message(name=constants.AI):
-                st.write(message["content"])
+#     if user_prompt:
+#         user_prompt = user_prompt.strip()
+
+#     if user_prompt:
+#         st.session_state.messages.append({"role": "user", "content": user_prompt})
+#         assistant_answer = functions.get_assistant_answer(user_prompt=user_prompt)
+#         st.session_state.messages.append(
+#             {"role": "assistant", "content": assistant_answer}
+#         )
+
+#     for index, message in enumerate(st.session_state.messages):
+#         if message["role"] == "user":
+#             with st.chat_message(name=constants.USER):
+#                 st.write(message["content"])
+#         elif message["role"] == "assistant":
+#             with st.chat_message(name=constants.AI):
+#                 st.write(message["content"])
 # **************************************************
 
 # **************************************************
