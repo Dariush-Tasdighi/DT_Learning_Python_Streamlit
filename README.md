@@ -1,68 +1,48 @@
-# Learning Streamlit for Chatbot / Data Science
+# Learning 'streamlit' Package
 
-- Package: 'streamlit'
-    - https://streamlit.io
-    - https://pypi.org/project/streamlit
-    - https://github.com/streamlit/streamlit
+## This program was developed by
 
-- Package: 'ollama-python'
-    - https://ollama.com
-    - https://pypi.org/project/ollama
-    - https://github.com/ollama/ollama-python
+- **Dariush Tasdighi**
+  - Cell Phone Number: (+98)-9121087461
+  - Email Address: <DariushT@GMail.com>
+  - Telegram ID: <https://t.me/Dariush_Tasdighi>
+  - LinkedIn: <https://www.linkedin.com/in/tasdighi>
+  - Telegram Channels
+    - <https://t.me/IranianExperts>
+    - <https://t.me/DT_PYTHON_LEARNING>
 
-- Package: 'dotenv-python'
-    - https://pypi.org/project/dotenv-python
-    - https://github.com/TsuiJie/dotenv-python
+## Used Packages
 
----
+### Package: 'streamlit'
 
-### References
+- <https://pypi.org/project/streamlit>
+- <https://github.com/streamlit/streamlit>
+- Site: <https://streamlit.io>
+- Documents: <https://docs.streamlit.io>
 
-- Package: 'streamlit'
-    - https://docs.streamlit.io
+### Package: 'ollama-python'
 
----
+- <https://pypi.org/project/ollama>
+- <https://github.com/ollama/ollama-python>
+- Site: <https://ollama.com>
 
-### Setup Environment
+### Package: 'dotenv-python'
+
+- <https://pypi.org/project/dotenv-python>
+- <https://github.com/TsuiJie/dotenv-python>
 
 ```bash
-python -m venv .venv
+# python -m venv .venv
+py -3.14 -m venv .venv.3.14
 ```
 
 ```bash
-.\.venv\Scripts\activate
+# .\.venv\Scripts\activate
+.\.venv.3.14\Scripts\activate
 ```
 
 ```bash
-python -m pip list
-```
-
-```bash
-python -m pip install -U pip
-```
-
-```bash
-python -m pip install -U ollama
-```
-
-```bash
-python -m pip install -U pandas
-```
-
-```bash
-python -m pip install -U requests
-```
-
-```bash
-python -m pip install -U yfinance
-```
-
-```bash
-python -m pip install -U streamlit
-```
-
-```bash
-python -m pip install -U python-dotenv
+python -m pip install -r .\requirements.txt -U
 ```
 
 ```bash
@@ -75,25 +55,23 @@ Now! We Create / Modify / Delete / Run the Source Codes...
 deactivate
 ```
 
----
-
-### For Publishing!
+## For Publishing
 
 - Self Host / VPS Server
-    - https://streamlit.io
-        - https://streamlit.io/cloud
-    - Microsoft Azure (Web App)
-    - https://huggingface.co/new-space
+  - <https://streamlit.io>
+    - <https://streamlit.io/cloud>
+  - Microsoft Azure (Web App)
+  - <https://huggingface.co/new-space> -> Docker
+  - <https://github.com> -> Github Pages -> stlite
+  - VPS
 
----
-
-### For Testing Streamlit (CLI)
+## For Testing Streamlit (CLI = Command Line Interface)
 
 ```shell
 streamlit hello
 ```
 
-### For Running Project
+## For Running Project
 
 ```shell
 streamlit run ./streamlit_app.py

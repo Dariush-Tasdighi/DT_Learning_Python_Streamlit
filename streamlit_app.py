@@ -4,37 +4,14 @@
 # **************************************************
 # import streamlit
 
+# from rich import print
+# from dt_utility import clear_screen
+
+# clear_screen()
+
+# print("=" * 50)
 # print(f"Version of 'streamlit' package: {streamlit.__version__}")
-# **************************************************
-
-
-# **************************************************
-# For Running:
-# > python .\streamlit_app.py
-# **************************************************
-# Bad Practice:
-# import os, streamlit
-# **************************************************
-# import os
-# import streamlit
-
-# os.system(command="cls" if os.name == "nt" else "clear")
-
-# print(f"Version of 'streamlit' package: {streamlit.__version__}")
-# print()
-# **************************************************
-
-
-# **************************************************
-# For Running:
-# > python .\streamlit_app.py
-# **************************************************
-# import os
-# import streamlit as st
-
-# os.system(command="cls" if os.name == "nt" else "clear")
-
-# print(f"Version of 'streamlit' package: {st.__version__}")
+# print("=" * 50)
 # print()
 # **************************************************
 
@@ -55,21 +32,13 @@
 #   - https://www.w3schools.com/css/default.asp
 #   - https://www.w3schools.com/html/default.asp
 # **************************************************
-# import os
 # import streamlit as st
+# from dt_utility import clear_screen
 
 # # است Bad Practice ،Streamlit در پروژه‌های
-# os.system(command="cls" if os.name == "nt" else "clear")
+# # clear_screen()
 
 # st.write("Hello, World!")  # <p>
-# **************************************************
-
-
-# **************************************************
-# Note: Do Not Write Below Codes!
-#
-# import os
-# os.system(command="cls" if os.name == "nt" else "clear")
 # **************************************************
 
 
@@ -142,6 +111,15 @@
 # # ##### Dariush Tasdighi
 # # ###### Dariush Tasdighi"""
 
+# # body = """
+# # # Dariush Tasdighi
+# # ## Dariush Tasdighi
+# # ### Dariush Tasdighi
+# # #### Dariush Tasdighi
+# # ##### Dariush Tasdighi
+# # ###### Dariush Tasdighi
+# # """
+
 # # body = """\
 # # # Dariush Tasdighi
 # # ## Dariush Tasdighi
@@ -168,18 +146,20 @@
 
 
 # **************************************************
+# **************************************************
+# **************************************************
 # Emoji:
-#
-# https://gitlab.com/-/snippets/2526872
-# https://gist.github.com/rxaviers/7360908
-# https://gohugo.io/quick-reference/emojis
-# https://github.com/ikatyang/emoji-cheat-sheet
-# https://streamlit-emoji-shortcodes-streamlit-app-gwckff.streamlit.app
-# https://dev.to/nikolab/complete-list-of-github-markdown-emoji-markup-5aia
+# - https://gitlab.com/-/snippets/2526872
+# - https://gist.github.com/rxaviers/7360908
+# - https://gohugo.io/quick-reference/emojis
+# - https://github.com/ikatyang/emoji-cheat-sheet
+# - https://streamlit-emoji-shortcodes-streamlit-app-gwckff.streamlit.app
+# - https://dev.to/nikolab/complete-list-of-github-markdown-emoji-markup-5aia
 #
 # Material:
-#
-# https://fonts.google.com/icons?icon.set=Material+Symbols&icon.style=Rounded
+# - https://fonts.google.com/icons?icon.set=Material+Symbols&icon.style=Rounded
+# **************************************************
+# **************************************************
 # **************************************************
 
 
@@ -226,8 +206,8 @@
 # import streamlit as st
 
 # st.title(body="👋 Welcome to My Site!")  # <h1>
-# st.header(body="👋 Welcome to My Site!")  # <h2>
-# st.subheader(body="👋 Welcome to  My Site!")  # <h3>
+# st.header(body="👋 Welcome to My Site!", divider="rainbow")  # <h2>
+# st.subheader(body="👋 Welcome to  My Site!", divider="rainbow")  # <h3>
 
 # st.markdown(body="Hello, _Dariush_! :kiss:")  # (_) --> Italic
 # st.markdown(body="Hello, **Dariush**! :computer:")  # (**) --> Bold
@@ -268,8 +248,9 @@
 # st.success(body="Success")
 # st.divider()
 
-# ex = RuntimeError("This is an exception of type RuntimeError!")
-# st.exception(exception=ex)
+# # Not For Production Model! Just In Developement Mode!
+# exception = RuntimeError("This is an exception of type RuntimeError!")
+# st.exception(exception=exception)
 # st.divider()
 # **************************************************
 
@@ -311,6 +292,22 @@
 
 
 # **************************************************
+# Thanks to Mr. Hossein Rostami
+# **************************************************
+# import streamlit as st
+
+# pressed_1: bool = st.button(label="Button (1)")
+# pressed_2: bool = st.button(label="Button (2)")
+
+# if pressed_1:
+#     st.write("You pressed the button (1)!")
+
+# if pressed_2:
+#     st.write("You pressed the button (2)!")
+# **************************************************
+
+
+# **************************************************
 # Learning: toast()
 # **************************************************
 # import streamlit as st
@@ -333,12 +330,11 @@
 # import streamlit as st
 
 # button_1_pressed: bool = st.button(label="Button (1)")
+# button_2_pressed: bool = st.button(label="Button (2)")
 
 # if button_1_pressed:
 #     st.snow()
 #     st.write("You pressed the button (1)!")
-
-# button_2_pressed: bool = st.button(label="Button (2)")
 
 # if button_2_pressed:
 #     st.balloons()
@@ -359,9 +355,9 @@
 # Python Note!
 # For Running: python .\streamlit_app.py
 # **************************************************
-# import os
+# from dt_utility import clear_screen
 
-# os.system(command="cls" if os.name == "nt" else "clear")
+# # clear_screen()
 
 # name = ""  # NOK
 # # name = None  # NOK
@@ -406,6 +402,15 @@
 
 
 # **************************************************
+# **************************************************
+# **************************************************
+# *** Run Simples! Simple_01, Simple_02, ...
+# **************************************************
+# **************************************************
+# **************************************************
+
+
+# **************************************************
 # یک مشکل اساسی
 # **************************************************
 # import streamlit as st
@@ -426,7 +431,7 @@
 # import streamlit as st
 
 # # مهم: دستور ذیل صحیح نمی‌باشد
-# # st.session_state.number = 0
+# st.session_state.number = 0
 
 # # Solution (1)
 # # if not st.session_state.get("number"):
@@ -435,8 +440,8 @@
 # # OR
 
 # # Solution (2)
-# if "number" not in st.session_state:
-#     st.session_state.number = 0
+# # if "number" not in st.session_state:
+# #     st.session_state.number = 0
 
 # pressed: bool = st.button(label="Press Me")
 
@@ -539,9 +544,7 @@
 
 # # New
 # def chat(user_prompt: str) -> str:
-#     """
-#     Chat function.
-#     """
+#     """Chat"""
 
 #     assistant_answer: str = f"I don't know! {user_prompt}"
 #     return assistant_answer
@@ -587,14 +590,13 @@
 
 
 # def chat(user_prompt: str) -> str:
-#     """
-#     Chat function.
-#     """
+#     """Chat"""
 
 #     assistant_answer: str = f"I don't know! {user_prompt}"
 #     return assistant_answer
 
 
+# # NEW
 # messages: list[dict] = []
 
 # st.set_page_config(
@@ -638,9 +640,7 @@
 
 
 # def chat(user_prompt: str) -> str:
-#     """
-#     Chat function.
-#     """
+#     """Chat"""
 
 #     assistant_answer: str = f"I don't know! {user_prompt}"
 #     return assistant_answer
@@ -693,9 +693,7 @@
 
 
 # def chat(user_prompt: str) -> str:
-#     """
-#     Chat function.
-#     """
+#     """Chat"""
 
 #     # NEW
 #     time.sleep(5)
@@ -741,8 +739,6 @@
 #     elif message["role"] == "assistant":
 #         with st.chat_message(name=AI):
 #             st.write(message["content"])
-
-# # for index, message in enumerate(st.session_state.messages):
 # **************************************************
 
 
@@ -752,7 +748,7 @@
 # import streamlit as st
 
 # # NEW
-# import dt_ollama as ollama
+# from dt_ollama import chat
 
 # AI: str = "AI"
 # USER: str = "USER"
@@ -780,7 +776,7 @@
 #     st.session_state.messages.append(user_message)
 
 #     # NEW
-#     assistant_answer, _, _ = ollama.chat(
+#     assistant_answer, _, _ = chat(
 #         messages=st.session_state.messages,
 #     )
 
@@ -818,7 +814,7 @@
 #         font-family: 'IRANSansX', tahoma !important;
 #     }
 
-#     .block-container, section, input, textarea {
+#     .block-container, section, input, textarea, div.stMarkdown {
 #         direction: rtl;
 #         text-align: justify;
 #     }
@@ -827,9 +823,7 @@
 
 
 # def chat(user_prompt: str) -> str:
-#     """
-#     Chat function.
-#     """
+#     """Chat"""
 
 #     # NEW
 #     assistant_answer: str = f"متاسفانه من پاسخ سوال شما را نمی‌دانم! {user_prompt}"
