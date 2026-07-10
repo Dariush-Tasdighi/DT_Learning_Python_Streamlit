@@ -21,7 +21,7 @@ st.header(
     body=f"👋 DT Chatbot!",
 )
 
-user_prompt = st.text_input(
+user_prompt: str = st.text_input(
     icon="❓",
     label="Enter your prompt",
 )
@@ -29,7 +29,7 @@ user_prompt = st.text_input(
 user_prompt = user_prompt.strip()
 
 if user_prompt:
-    assistant_answer = chat(user_prompt=user_prompt)
+    assistant_answer: str = chat(user_prompt=user_prompt)
 
     if assistant_answer:
         with st.container(border=True):

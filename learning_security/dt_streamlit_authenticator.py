@@ -2,26 +2,30 @@
 Dariush Tasdighi Streamlit Authenticator Module
 """
 
-from typing import Final
-
 import streamlit as st
 import dt_utility as utility
 
-VERSION: Final[str] = "1.0.0"
+from typing import Final
+from streamlit.delta_generator import DeltaGenerator
 
-HEADER_LOGIN: Final[str] = "Login"
+VERSION: Final[str] = "1.1.0"
 
-LABEL_LOGIN: Final[str] = "Login"
-LABEL_LOGOUT: Final[str] = "Logout"
-LABEL_USERNAME: Final[str] = "Username"
-LABEL_PASSWORD: Final[str] = "Password"
+_HEADER_LOGIN: Final[str] = "Login"
 
-ERROR_MESSAGE_WRONG_USERNAME_PASSWORD: Final[str] = (
+_LABEL_LOGIN: Final[str] = "Login"
+_LABEL_LOGOUT: Final[str] = "Logout"
+_LABEL_USERNAME: Final[str] = "Username"
+_LABEL_PASSWORD: Final[str] = "Password"
+
+SESSION_STATE_KEY_USERNAME: Final[str] = "username"
+SESSION_STATE_KEY_USER_LOGGED_IN: Final[str] = "user_logged_in"
+
+_ERROR_MESSAGE_WRONG_USERNAME_PASSWORD: Final[str] = (
     "Username and/or password is not correct!"
 )
 
 
-def login(username: str, password: str) -> bool:
+def _login(username: str, password: str) -> bool:
     """
     Login
     """
@@ -43,28 +47,34 @@ def initialize(page_title: str) -> None:
         page_title=page_title,
     )
 
-    if "user_logged_in" not in st.session_state:
-        st.session_state.user_logged_in = False
+    if SESSION_STATE_KEY_USERNAME not in st.session_state:
+        st.session_state[SESSION_STATE_KEY_USERNAME] = ""
+
+    if SESSION_STATE_KEY_USER_LOGGED_IN not in st.session_state:
+        st.session_state[SESSION_STATE_KEY_USER_LOGGED_IN] = False
 
 
-def login_button_clicked(username: str, password: str) -> None:
+def _login_button_clicked_callback(username: str, password: str) -> None:
     """
-    Login button clicked
+    Login button clicked callback
     """
 
-    login_result: bool = login(username=username, password=password)
-    if login_result:
-        st.session_state.user_logged_in = True
+    result: bool = _login(username=username, password=password)
+
+    if result:
+        st.session_state[SESSION_STATE_KEY_USERNAME] = username
+        st.session_state[SESSION_STATE_KEY_USER_LOGGED_IN] = True
     else:
-        st.error(body=ERROR_MESSAGE_WRONG_USERNAME_PASSWORD)
+        st.error(body=_ERROR_MESSAGE_WRONG_USERNAME_PASSWORD)
 
 
-def logout_button_clicked() -> None:
+def _logout_button_clicked_callback() -> None:
     """
-    Logout
+    Logout button clicked callback
     """
 
-    st.session_state.user_logged_in = False
+    st.session_state[SESSION_STATE_KEY_USERNAME] = ""
+    st.session_state[SESSION_STATE_KEY_USER_LOGGED_IN] = False
 
 
 def show_login_section() -> None:
@@ -73,24 +83,42 @@ def show_login_section() -> None:
     """
 
     login_section = st.container(border=True)
+
     with login_section:
         st.header(
             divider="rainbow",
-            body=f"👋 {HEADER_LOGIN}",
+            body=f"👋 {_HEADER_LOGIN}",
         )
 
-        username_text_input = st.text_input(label=LABEL_USERNAME)
-        password_text_input = st.text_input(label=LABEL_PASSWORD)
-        # password_text_input = st.text_input(label=LABEL_PASSWORD, type="password")
+        username: str = st.text_input(label=_LABEL_USERNAME)
+        password: str = st.text_input(label=_LABEL_PASSWORD)
+        # password: str = st.text_input(label=_LABEL_PASSWORD, type="password")
 
-        username: str = username_text_input.strip()
-        password: str = password_text_input.strip()
+        username = username.strip()
+        password = password.strip()
 
         st.button(
-            label=LABEL_LOGIN,
+            label=_LABEL_LOGIN,
             args=(username, password),
-            on_click=login_button_clicked,
+            on_click=_login_button_clicked_callback,
         )
+
+
+def show_logout_section(container: DeltaGenerator) -> None:
+    """
+    Show logout section
+    """
+
+    with container:
+        username: str = st.session_state[SESSION_STATE_KEY_USERNAME]
+        st.write(f"Welcome {username}!")
+
+        st.button(
+            label=_LABEL_LOGOUT,
+            on_click=_logout_button_clicked_callback,
+        )
+
+        st.divider()
 
 
 if __name__ == "__main__":

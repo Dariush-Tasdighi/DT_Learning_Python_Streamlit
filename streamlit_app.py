@@ -2,17 +2,17 @@
 # For Running:
 # > python .\streamlit_app.py
 # **************************************************
-# import streamlit
+import streamlit
 
-# from rich import print
-# from dt_utility import clear_screen
+from rich import print
+from dt_utility import clear_screen
 
-# clear_screen()
+clear_screen()
 
-# print("=" * 50)
-# print(f"Version of 'streamlit' package: {streamlit.__version__}")
-# print("=" * 50)
-# print()
+print("=" * 50)
+print(f"Version of 'streamlit' package: {streamlit.__version__}")
+print("=" * 50)
+print()
 # **************************************************
 
 
@@ -1148,78 +1148,78 @@
 # **************************************************
 # Final Code! (Persian)
 # **************************************************
-from typing import (
-    Final,
-    Optional,
-)
+# from typing import (
+#     Final,
+#     Optional,
+# )
 
-import streamlit as st
-import dtx_ollama as ollama
+# import streamlit as st
+# import dtx_ollama as ollama
 
-AI: Final[str] = "AI"
-USER: Final[str] = "USER"
+# AI: Final[str] = "AI"
+# USER: Final[str] = "USER"
 
-STREAMLIT_STYLE: Final[str] = """
-<style>
-    @import url('https://fonts.cdnfonts.com/css/iransansx');
+# STREAMLIT_STYLE: Final[str] = """
+# <style>
+#     @import url('https://fonts.cdnfonts.com/css/iransansx');
 
-    html, body, p, h1, h2, h3, h4, h5, h6, input, textarea, li {
-        font-family: 'IRANSansX', tahoma !important;
-    }
+#     html, body, p, h1, h2, h3, h4, h5, h6, input, textarea, li {
+#         font-family: 'IRANSansX', tahoma !important;
+#     }
 
-    .block-container, section, input, textarea, div.stMarkdown, div.stHeading {
-        direction: rtl;
-        text-align: justify;
-    }
-</style>
-"""
+#     .block-container, section, input, textarea, div.stMarkdown, div.stHeading {
+#         direction: rtl;
+#         text-align: justify;
+#     }
+# </style>
+# """
 
-if "messages" not in st.session_state:
-    st.session_state.messages = []
+# if "messages" not in st.session_state:
+#     st.session_state.messages = []
 
-st.set_page_config(
-    page_icon="👋",
-    page_title="DT Chatbot",
-)
+# st.set_page_config(
+#     page_icon="👋",
+#     page_title="DT Chatbot",
+# )
 
-st.markdown(
-    body=STREAMLIT_STYLE,
-    unsafe_allow_html=True,
-)
+# st.markdown(
+#     body=STREAMLIT_STYLE,
+#     unsafe_allow_html=True,
+# )
 
-with st.sidebar:
-    st.subheader(body="تنظیمات", divider="rainbow")
+# with st.sidebar:
+#     st.subheader(body="تنظیمات", divider="rainbow")
 
-st.header(body="به ربات داریوش تصدیقی خوش آمدید!", divider="rainbow")
+# st.header(body="به ربات داریوش تصدیقی خوش آمدید!", divider="rainbow")
 
-user_prompt: Optional[str] = st.chat_input(
-    placeholder="لطفا سوال خودتان را اینجا بپرسید..."
-)
+# user_prompt: Optional[str] = st.chat_input(
+#     placeholder="لطفا سوال خودتان را اینجا بپرسید..."
+# )
 
-if user_prompt:
-    user_prompt = user_prompt.strip()
+# if user_prompt:
+#     user_prompt = user_prompt.strip()
 
-if user_prompt:
-    user_message: dict = {"role": "user", "content": user_prompt}
-    st.session_state.messages.append(user_message)
+# if user_prompt:
+#     user_message: dict = {"role": "user", "content": user_prompt}
+#     st.session_state.messages.append(user_message)
 
-    assistant_answer, _, _, _ = ollama.chat(
-        messages=st.session_state.messages,
-    )
+#     assistant_answer, _, _, _ = ollama.chat(
+#         messages=st.session_state.messages,
+#     )
 
-    if not assistant_answer:
-        st.session_state.messages.pop()
-    else:
-        assistant_message: dict = {"role": "assistant", "content": assistant_answer}
-        st.session_state.messages.append(assistant_message)
+#     if not assistant_answer:
+#         st.session_state.messages.pop()
+#     else:
+#         assistant_message: dict = {"role": "assistant", "content": assistant_answer}
+#         st.session_state.messages.append(assistant_message)
 
-for message in st.session_state.messages:
-    if message["role"] == "user":
-        with st.chat_message(name=USER):
-            st.write(message["content"])
-    elif message["role"] == "assistant":
-        with st.chat_message(name=AI):
-            st.write(message["content"])
+# for message in st.session_state.messages:
+#     if message["role"] == "user":
+#         with st.chat_message(name=USER):
+#             st.write(message["content"])
+#     elif message["role"] == "assistant":
+#         with st.chat_message(name=AI):
+#             st.write(message["content"])
 # **************************************************
 
 

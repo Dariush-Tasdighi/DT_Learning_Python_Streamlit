@@ -16,23 +16,27 @@
 
 ## Used Packages
 
-### Package: 'streamlit'
+### 'streamlit' package
 
 - <https://pypi.org/project/streamlit>
 - <https://github.com/streamlit/streamlit>
-- Site: <https://streamlit.io>
-- Documents: <https://docs.streamlit.io>
+- **More:**
+  - <https://streamlit.io>
+  - <https://docs.streamlit.io>
 
-### Package: 'ollama-python'
+### 'ollama-python' package
 
 - <https://pypi.org/project/ollama>
 - <https://github.com/ollama/ollama-python>
-- Site: <https://ollama.com>
+- **More:**
+  - <https://ollama.com>
 
-### Package: 'dotenv-python'
+### 'dotenv-python' package
 
 - <https://pypi.org/project/dotenv-python>
 - <https://github.com/TsuiJie/dotenv-python>
+
+## Setup Environment
 
 ```bash
 # python -m venv .venv
@@ -82,7 +86,7 @@ streamlit run ./streamlit_app.py
 python -m streamlit run ./app.py --server.address 0.0.0.0 --server.port 8000
 ```
 
-## VS Code
+## Enable 'Open Integrated Browser' in VSCode
 
 - CTRL + SHIFT + P
   - Search: 'Browser'
@@ -100,7 +104,6 @@ python -m streamlit run ./app.py --server.address 0.0.0.0 --server.port 8000
 ```shell
 Help agents write better Streamlit apps?
   Install the official Streamlit skills by running streamlit skills in your terminal.
-
 
 ⚠ Symlinks not supported on this system.
 Project install uses symlinks so skills stay matched to your active Streamlit environment.

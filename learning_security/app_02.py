@@ -30,7 +30,7 @@ st.header(
     body=f"👋 {PAGE_TITLE}",
 )
 
-user_prompt = st.text_input(
+user_prompt: str = st.text_input(
     icon="❓",
     # NEW
     label=USER_QUESTION,
@@ -39,7 +39,7 @@ user_prompt = st.text_input(
 user_prompt = user_prompt.strip()
 
 if user_prompt:
-    assistant_answer = chat(user_prompt=user_prompt)
+    assistant_answer: str = chat(user_prompt=user_prompt)
 
     if assistant_answer:
         with st.container(border=True):

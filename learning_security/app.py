@@ -18,15 +18,11 @@ def show_sidebar_section() -> None:
     """
 
     sidebar_section = st.sidebar
+
     with sidebar_section:
-        # NEW
         st.subheader(body=constants.HEADER_SETTINGS, divider="rainbow")
 
-        # NEW
-        st.button(
-            label=authenticator.LABEL_LOGOUT,
-            on_click=authenticator.logout_button_clicked,
-        )
+        authenticator.show_logout_section(container=sidebar_section)
 
 
 def show_main_section() -> None:
@@ -36,28 +32,26 @@ def show_main_section() -> None:
 
     st.header(
         divider="rainbow",
-        # NEW
         body=f"👋 {constants.PAGE_TITLE}",
     )
 
-    user_prompt = st.text_input(
+    user_prompt: str = st.text_input(
         icon="❓",
-        # NEW
         label=constants.USER_QUESTION,
     )
 
     user_prompt = user_prompt.strip()
 
     if user_prompt:
-        assistant_answer = chat(user_prompt=user_prompt)
+        assistant_answer: str = chat(user_prompt=user_prompt)
 
         if assistant_answer:
             with st.container(border=True):
                 st.write(assistant_answer)
 
 
-# NEW
 authenticator.initialize(page_title=constants.PAGE_TITLE)
+
 if st.session_state.user_logged_in:
     show_main_section()
     show_sidebar_section()

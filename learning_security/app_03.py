@@ -38,7 +38,7 @@ def show_main_section() -> None:
         body=f"👋 {PAGE_TITLE}",
     )
 
-    user_prompt = st.text_input(
+    user_prompt: str = st.text_input(
         icon="❓",
         label=USER_QUESTION,
     )
@@ -46,7 +46,7 @@ def show_main_section() -> None:
     user_prompt = user_prompt.strip()
 
     if user_prompt:
-        assistant_answer = chat(user_prompt=user_prompt)
+        assistant_answer: str = chat(user_prompt=user_prompt)
 
         if assistant_answer:
             with st.container(border=True):

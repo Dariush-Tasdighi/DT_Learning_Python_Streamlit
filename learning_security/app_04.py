@@ -52,13 +52,14 @@ def initialize(page_title: str) -> None:
 
 
 # NEW
-def login_button_clicked(username: str, password: str) -> None:
+def login_button_clicked_callback(username: str, password: str) -> None:
     """
-    Login button clicked
+    Login button clicked callback
     """
 
-    login_result: bool = login(username=username, password=password)
-    if login_result:
+    result: bool = login(username=username, password=password)
+
+    if result:
         st.session_state.user_logged_in = True
     else:
         st.error(body=ERROR_MESSAGE_WRONG_USERNAME_PASSWORD)
@@ -71,31 +72,32 @@ def show_login_section() -> None:
     """
 
     login_section = st.container(border=True)
+
     with login_section:
         st.header(
             divider="rainbow",
             body=f"👋 {HEADER_LOGIN}",
         )
 
-        username_text_input = st.text_input(label=LABEL_USERNAME)
-        password_text_input = st.text_input(label=LABEL_PASSWORD)
-        # password_text_input = st.text_input(label=LABEL_PASSWORD, type="password")
+        username: str = st.text_input(label=LABEL_USERNAME)
+        password: str = st.text_input(label=LABEL_PASSWORD)
+        # password: str = st.text_input(label=LABEL_PASSWORD, type="password")
 
-        username: str = username_text_input.strip()
-        password: str = password_text_input.strip()
+        username = username.strip()
+        password = password.strip()
 
         # ********************
         # دستورات ذیل، درست کار نمی‌کنند
         # ********************
-        # login_button = st.button(label=LABEL_LOGIN)
+        # login_button_clicked: bool = st.button(label=LABEL_LOGIN)
 
-        # if login_button:
-        #     login_result: bool = login(
+        # if login_button_clicked:
+        #     result: bool = login(
         #         username=username,
         #         password=password,
         #     )
 
-        #     if login_result:
+        #     if result:
         #         st.session_state.user_logged_in = True
         #     else:
         #         st.error(body=ERROR_MESSAGE_WRONG_USERNAME_PASSWORD)
@@ -104,7 +106,7 @@ def show_login_section() -> None:
         st.button(
             label=LABEL_LOGIN,
             args=(username, password),
-            on_click=login_button_clicked,
+            on_click=login_button_clicked_callback,
         )
 
 
@@ -118,7 +120,7 @@ def show_main_section() -> None:
         body=f"👋 {PAGE_TITLE}",
     )
 
-    user_prompt = st.text_input(
+    user_prompt: str = st.text_input(
         icon="❓",
         label=USER_QUESTION,
     )
@@ -126,7 +128,7 @@ def show_main_section() -> None:
     user_prompt = user_prompt.strip()
 
     if user_prompt:
-        assistant_answer = chat(user_prompt=user_prompt)
+        assistant_answer: str = chat(user_prompt=user_prompt)
 
         if assistant_answer:
             with st.container(border=True):
