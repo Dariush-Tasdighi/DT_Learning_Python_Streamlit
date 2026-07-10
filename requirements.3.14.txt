@@ -4,5 +4,7 @@ ollama
 pandas
 requests
 yfinance
-streamlit
 python-dotenv
+
+streamlit
+streamlit[auth]

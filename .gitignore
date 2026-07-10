@@ -1,4 +1,7 @@
 .env
+
+musics/
+
 .venv/
 .vscode/
 __pycache__/

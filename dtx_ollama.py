@@ -8,13 +8,15 @@ from typing import Optional
 from ollama import Client
 from ollama import ChatResponse
 
+import time
 import logging
 import dt_utility as utility
 import dt_llm_utility as llm_utility
 
 from dtx_dotenv import get_key_value
 
-VERSION: Final[str] = "2.3"
+VERSION: Final[str] = "3.0.0"
+
 TEMPERATURE: Final[float] = 0.7
 
 MODEL_NAME: Final[str] = "llama3.2:1b".replace(" ", "").lower()
@@ -57,8 +59,10 @@ def chat(
     model_name: str = MODEL_NAME,
     temperature: float = TEMPERATURE,
     base_url: str = BASE_URL_OFFLINE,
-) -> tuple[Optional[str], int, int]:
+) -> tuple[Optional[str], int, int, float]:
     """Chat with Ollama service."""
+
+    start_time: float = time.perf_counter()
 
     if model_name[-5:].lower() == "cloud":
         client = get_online_client()
@@ -88,7 +92,10 @@ def chat(
         if response.prompt_eval_count:
             prompt_tokens = response.prompt_eval_count
 
-    return assistant_answer, prompt_tokens, completion_tokens
+    end_time: float = time.perf_counter()
+    elapsed_time: float = end_time - start_time
+
+    return assistant_answer, prompt_tokens, completion_tokens, elapsed_time
 
 
 if __name__ == "__main__":

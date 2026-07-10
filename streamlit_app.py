@@ -411,6 +411,222 @@
 
 
 # **************************************************
+# import streamlit as st
+
+# text: str = st.text_area(label="Text")
+
+# text = text.strip()
+
+# if text:
+#     st.write(text)
+# **************************************************
+
+
+# **************************************************
+# import streamlit as st
+
+# number: float = st.number_input(label="Number")
+
+# # در این مثال نیازی نیست
+# # number = number.strip()
+
+# # if number:
+# if number > 0:
+#     st.write(f"Number: {number}")
+# **************************************************
+
+
+# **************************************************
+# import streamlit as st
+
+# age: float = st.number_input(
+#     step=1,
+#     value=5,
+#     label="Age",
+#     min_value=0,
+#     max_value=18,
+# )
+
+# if age > 0:
+#     st.write(f"Age: {age}")
+# **************************************************
+
+
+# **************************************************
+# import streamlit as st
+
+# age: float = st.slider(
+#     step=1,
+#     value=5,
+#     label="Age",
+#     min_value=0,
+#     max_value=18,
+# )
+
+# if age > 0:
+#     st.write(f"Age: {age}")
+# **************************************************
+
+
+# **************************************************
+# import streamlit as st
+
+# is_active: bool = st.checkbox(
+#     label="Active",
+# )
+
+# if is_active:
+#     st.write(f"Your system is active!")
+# **************************************************
+
+
+# **************************************************
+# import streamlit as st
+
+# audio_path_or_url: str = "./data/music_01.mp3"
+# # audio_path_or_url: str = "https://dl.musicdel.ir/Music/1404/07/Mohsen%20Chavoshi-Hasbi%20Allah%20-musicdel.ir%20128.mp3"
+
+# st.audio(data=audio_path_or_url)
+# # st.video()
+# **************************************************
+
+
+# **************************************************
+# import streamlit as st
+
+# audio_value = st.audio_input(
+#     label="Speak",
+#     sample_rate=48_000,  # Default: 16_000
+# )
+
+# # ...
+
+# if audio_value:
+#     st.audio(audio_value)
+# **************************************************
+
+
+# **************************************************
+# https://docs.streamlit.io/develop/api-reference/widgets/st.camera_input
+# **************************************************
+# import streamlit as st
+
+# enable = st.checkbox("Enable Camera")
+
+# # if enable:
+# #     picture = st.camera_input(
+# #         label="Take a picture",
+# #     )
+
+# picture = st.camera_input(
+#     disabled=not enable,
+#     label="Take a picture",
+# )
+
+# if picture:
+#     st.image(picture)
+# **************************************************
+
+
+# **************************************************
+# Authentication
+# > python -m pip install streamlit[auth]
+# https://docs.streamlit.io/develop/api-reference/user/st.user
+# **************************************************
+# import streamlit as st
+
+# if not st.user.is_logged_in:
+#     if st.button("Log in"):
+#         st.login()
+# else:
+#     if st.button("Log out"):
+#         st.logout()
+#     st.write(f"Hello, {st.user.name}!")
+# **************************************************
+
+
+# **************************************************
+# # NEW
+# import tempfile
+
+# import os
+# import streamlit as st
+
+# create_file_button: bool = st.button(label="Create File")
+
+# if create_file_button:
+#     # NEW
+#     with tempfile.NamedTemporaryFile(
+#         mode="wt", suffix=".txt", delete=False, encoding="utf-8"
+#     ) as temp_file:
+#         temp_file.write("This is a sample file!")
+#         temp_path = temp_file.name
+
+#     with open(file=temp_path, mode="rt", encoding="utf-8") as file:
+#         # NEW
+#         st.download_button(
+#             data=file.read(),
+#             mime="text/plain",
+#             label="Download File",
+#             file_name="sample.txt",
+#         )
+
+#     st.caption(f"Temp Path: {temp_path}")
+
+#     os.remove(path=temp_path)
+# **************************************************
+
+
+# **************************************************
+# import os
+# import tempfile
+# from gtts import gTTS
+# import streamlit as st
+
+# st.title("Text to Speech Converter")
+
+# text = st.text_area("Enter your text:", "Hello, this is a sample text to speech conversion.")
+
+# # NEW
+# lang = st.selectbox("Language:", ["en", "fa"], index=0)
+
+# if st.button("Generate Audio File"):
+#     # Create a temporary mp3 file
+#     with tempfile.NamedTemporaryFile(suffix=".mp3", delete=False) as tmp:
+#         tts = gTTS(text=text, lang=lang)
+#         tts.save(tmp.name)
+#         tmp_path = tmp.name
+
+#     # Read the generated audio file as bytes
+#     with open(tmp_path, "rb") as f:
+#         audio_bytes = f.read()
+
+#     # Play the audio in the app
+#     st.audio(audio_bytes, format="audio/mp3")
+
+#     # Allow the user to download the audio file
+#     st.download_button(
+#         label="Download Audio File",
+#         data=audio_bytes,
+#         file_name="output.mp3",
+#         mime="audio/mp3"
+#     )
+
+#     # Remove the temporary file
+#     os.remove(tmp_path)
+# **************************************************
+
+
+# **************************************************
+# **************************************************
+# **************************************************
+# Advanced Topic
+# **************************************************
+# **************************************************
+# **************************************************
+
+
+# **************************************************
 # یک مشکل اساسی
 # **************************************************
 # import streamlit as st
@@ -430,22 +646,33 @@
 # **************************************************
 # import streamlit as st
 
+# # ********************
 # # مهم: دستور ذیل صحیح نمی‌باشد
+# # number: int = 0
+# # ********************
 # st.session_state.number = 0
+# # ********************
 
+# # ********************
 # # Solution (1)
+# # ********************
 # # if not st.session_state.get("number"):
 # #     st.session_state.number = 0
+# # ********************
 
 # # OR
 
+# # ********************
 # # Solution (2)
+# # ********************
 # # if "number" not in st.session_state:
 # #     st.session_state.number = 0
+# # ********************
 
 # pressed: bool = st.button(label="Press Me")
 
 # if pressed:
+#     # number += 1
 #     st.session_state.number += 1
 #     st.write(f"Number: {st.session_state.number}")
 # **************************************************
@@ -478,10 +705,11 @@
 
 # **************************************************
 # import streamlit as st
+# from typing import Final
 
 # # New
-# AI: str = "AI"
-# USER: str = "USER"
+# AI: Final[str] = "AI"
+# USER: Final[str] = "USER"
 
 # st.set_page_config(
 #     page_icon="👋",
@@ -505,10 +733,14 @@
 
 
 # **************************************************
+# from typing import (
+#     Final,
+#     Optional,
+# )
 # import streamlit as st
 
-# AI: str = "AI"
-# USER: str = "USER"
+# AI: Final[str] = "AI"
+# USER: Final[str] = "USER"
 
 # st.set_page_config(
 #     page_icon="👋",
@@ -521,7 +753,7 @@
 # st.header(body="DT Chatbot", divider="rainbow")
 
 # # New
-# user_prompt: str | None = st.chat_input(placeholder="Type your question here...")
+# user_prompt: Optional[str] = st.chat_input(placeholder="Type your question here...")
 
 # # New
 # if user_prompt:
@@ -536,15 +768,21 @@
 
 
 # **************************************************
+# from typing import (
+#     Final,
+#     Optional,
+# )
 # import streamlit as st
 
-# AI: str = "AI"
-# USER: str = "USER"
+# AI: Final[str] = "AI"
+# USER: Final[str] = "USER"
 
 
 # # New
 # def chat(user_prompt: str) -> str:
-#     """Chat"""
+#     """
+#     Chat
+#     """
 
 #     assistant_answer: str = f"I don't know! {user_prompt}"
 #     return assistant_answer
@@ -560,7 +798,7 @@
 
 # st.header(body="DT Chatbot", divider="rainbow")
 
-# user_prompt: str | None = st.chat_input(placeholder="Type your question here...")
+# user_prompt: Optional[str] = st.chat_input(placeholder="Type your question here...")
 
 # # New
 # if user_prompt:
@@ -583,14 +821,20 @@
 # **************************************************
 # We Need Chat History (Messages), But There is a Problem!
 # **************************************************
+# from typing import (
+#     Final,
+#     Optional,
+# )
 # import streamlit as st
 
-# AI: str = "AI"
-# USER: str = "USER"
+# AI: Final[str] = "AI"
+# USER: Final[str] = "USER"
 
 
 # def chat(user_prompt: str) -> str:
-#     """Chat"""
+#     """
+#     Chat
+#     """
 
 #     assistant_answer: str = f"I don't know! {user_prompt}"
 #     return assistant_answer
@@ -609,7 +853,7 @@
 
 # st.header(body="DT Chatbot", divider="rainbow")
 
-# user_prompt: str | None = st.chat_input(placeholder="Type your question here...")
+# user_prompt: Optional[str] = st.chat_input(placeholder="Type your question here...")
 
 # if user_prompt:
 #     user_prompt = user_prompt.strip()
@@ -633,14 +877,20 @@
 # **************************************************
 # Fix the previous problem with session state!
 # **************************************************
+# from typing import (
+#     Final,
+#     Optional,
+# )
 # import streamlit as st
 
-# AI: str = "AI"
-# USER: str = "USER"
+# AI: Final[str] = "AI"
+# USER: Final[str] = "USER"
 
 
 # def chat(user_prompt: str) -> str:
-#     """Chat"""
+#     """
+#     Chat
+#     """
 
 #     assistant_answer: str = f"I don't know! {user_prompt}"
 #     return assistant_answer
@@ -660,7 +910,7 @@
 
 # st.header(body="DT Chatbot", divider="rainbow")
 
-# user_prompt: str | None = st.chat_input(placeholder="Type your question here...")
+# user_prompt: Optional[str] = st.chat_input(placeholder="Type your question here...")
 
 # if user_prompt:
 #     user_prompt = user_prompt.strip()
@@ -686,16 +936,23 @@
 # **************************************************
 # # NEW
 # import time
+
+# from typing import (
+#     Final,
+#     Optional,
+# )
 # import streamlit as st
 
-# AI: str = "AI"
-# USER: str = "USER"
+# AI: Final[str] = "AI"
+# USER: Final[str] = "USER"
 
 
 # def chat(user_prompt: str) -> str:
-#     """Chat"""
+#     """
+#     Chat
+#     """
 
-#     # NEW
+#     # NEW: For Debugging!
 #     time.sleep(5)
 
 #     assistant_answer: str = f"I don't know! {user_prompt}"
@@ -715,7 +972,7 @@
 
 # st.header(body="DT Chatbot", divider="rainbow")
 
-# user_prompt: str | None = st.chat_input(placeholder="Type your question here...")
+# user_prompt: Optional[str] = st.chat_input(placeholder="Type your question here...")
 
 # if user_prompt:
 #     user_prompt = user_prompt.strip()
@@ -729,9 +986,8 @@
 #     assistant_message: dict = {"role": "assistant", "content": assistant_answer}
 #     st.session_state.messages.append(assistant_message)
 
-# # st.write(st.session_state.messages)
-
 # # NEW
+# # st.write(st.session_state.messages)
 # for message in st.session_state.messages:
 #     if message["role"] == "user":
 #         with st.chat_message(name=USER):
@@ -748,10 +1004,15 @@
 # import streamlit as st
 
 # # NEW
-# from dt_ollama import chat
+# from dtx_ollama import chat
 
-# AI: str = "AI"
-# USER: str = "USER"
+# from typing import (
+#     Final,
+#     Optional,
+# )
+
+# AI: Final[str] = "AI"
+# USER: Final[str] = "USER"
 
 # if "messages" not in st.session_state:
 #     st.session_state.messages = []
@@ -766,7 +1027,7 @@
 
 # st.header(body="DT Chatbot", divider="rainbow")
 
-# user_prompt: str | None = st.chat_input(placeholder="Type your question here...")
+# user_prompt: Optional[str] = st.chat_input(placeholder="Type your question here...")
 
 # if user_prompt:
 #     user_prompt = user_prompt.strip()
@@ -776,7 +1037,7 @@
 #     st.session_state.messages.append(user_message)
 
 #     # NEW
-#     assistant_answer, _, _ = chat(
+#     assistant_answer, _, _, _ = chat(
 #         messages=st.session_state.messages,
 #     )
 
@@ -801,12 +1062,16 @@
 # Final Code! (Persian)
 # **************************************************
 # import streamlit as st
+# from typing import (
+#     Final,
+#     Optional,
+# )
 
-# AI: str = "AI"
-# USER: str = "USER"
+# AI: Final[str] = "AI"
+# USER: Final[str] = "USER"
 
 # # NEW
-# STREAMLIT_STYLE: str = """
+# STREAMLIT_STYLE: Final[str] = """
 # <style>
 #     @import url('https://fonts.cdnfonts.com/css/iransansx');
 
@@ -814,7 +1079,7 @@
 #         font-family: 'IRANSansX', tahoma !important;
 #     }
 
-#     .block-container, section, input, textarea, div.stMarkdown {
+#     .block-container, section, input, textarea, div.stMarkdown, div.stHeading {
 #         direction: rtl;
 #         text-align: justify;
 #     }
@@ -823,7 +1088,9 @@
 
 
 # def chat(user_prompt: str) -> str:
-#     """Chat"""
+#     """
+#     Chat
+#     """
 
 #     # NEW
 #     assistant_answer: str = f"متاسفانه من پاسخ سوال شما را نمی‌دانم! {user_prompt}"
@@ -851,7 +1118,7 @@
 # # NEW
 # st.header(body="به ربات داریوش تصدیقی خوش آمدید!", divider="rainbow")
 
-# user_prompt: str | None = st.chat_input(
+# user_prompt: Optional[str] = st.chat_input(
 #     # NEW
 #     placeholder="لطفا سوال خودتان را اینجا بپرسید..."
 # )
@@ -881,83 +1148,78 @@
 # **************************************************
 # Final Code! (Persian)
 # **************************************************
-# import streamlit as st
-# import dt_ollama as ollama
+from typing import (
+    Final,
+    Optional,
+)
 
-# AI: str = "AI"
-# USER: str = "USER"
+import streamlit as st
+import dtx_ollama as ollama
 
-# STREAMLIT_STYLE: str = """
-# <style>
-#     @import url('https://fonts.cdnfonts.com/css/iransansx');
+AI: Final[str] = "AI"
+USER: Final[str] = "USER"
 
-#     html, body, p, h1, h2, h3, h4, h5, h6, input, textarea, li {
-#         font-family: 'IRANSansX', tahoma !important;
-#     }
+STREAMLIT_STYLE: Final[str] = """
+<style>
+    @import url('https://fonts.cdnfonts.com/css/iransansx');
 
-#     .block-container, section, input, textarea {
-#         direction: rtl;
-#         text-align: justify;
-#     }
-# </style>
-# """
+    html, body, p, h1, h2, h3, h4, h5, h6, input, textarea, li {
+        font-family: 'IRANSansX', tahoma !important;
+    }
 
+    .block-container, section, input, textarea, div.stMarkdown, div.stHeading {
+        direction: rtl;
+        text-align: justify;
+    }
+</style>
+"""
 
-# def get_assistant_answer(user_prompt: str) -> str:
-#     """
-#     Get assistant answer.
-#     """
+if "messages" not in st.session_state:
+    st.session_state.messages = []
 
-#     assistant_answer: str = f"متاسفانه من پاسخ سوال شما را نمی‌دانم! {user_prompt}"
-#     return assistant_answer
+st.set_page_config(
+    page_icon="👋",
+    page_title="DT Chatbot",
+)
 
+st.markdown(
+    body=STREAMLIT_STYLE,
+    unsafe_allow_html=True,
+)
 
-# if "messages" not in st.session_state:
-#     st.session_state.messages = []
+with st.sidebar:
+    st.subheader(body="تنظیمات", divider="rainbow")
 
-# st.set_page_config(
-#     page_icon="👋",
-#     page_title="DT Chatbot",
-# )
+st.header(body="به ربات داریوش تصدیقی خوش آمدید!", divider="rainbow")
 
-# st.markdown(
-#     body=STREAMLIT_STYLE,
-#     unsafe_allow_html=True,
-# )
+user_prompt: Optional[str] = st.chat_input(
+    placeholder="لطفا سوال خودتان را اینجا بپرسید..."
+)
 
-# with st.sidebar:
-#     st.subheader(body="تنظیمات", divider="rainbow")
+if user_prompt:
+    user_prompt = user_prompt.strip()
 
-# st.header(body="به ربات داریوش تصدیقی خوش آمدید!", divider="rainbow")
+if user_prompt:
+    user_message: dict = {"role": "user", "content": user_prompt}
+    st.session_state.messages.append(user_message)
 
-# user_prompt: str | None = st.chat_input(
-#     placeholder="لطفا سوال خودتان را اینجا بپرسید..."
-# )
+    assistant_answer, _, _, _ = ollama.chat(
+        messages=st.session_state.messages,
+    )
 
-# if user_prompt:
-#     user_prompt = user_prompt.strip()
+    if not assistant_answer:
+        st.session_state.messages.pop()
+    else:
+        assistant_message: dict = {"role": "assistant", "content": assistant_answer}
+        st.session_state.messages.append(assistant_message)
 
-# if user_prompt:
-#     user_message: dict = {"role": "user", "content": user_prompt}
-#     st.session_state.messages.append(user_message)
-
-#     assistant_answer, _, _ = ollama.chat(
-#         messages=st.session_state.messages,
-#     )
-
-#     if not assistant_answer:
-#         st.session_state.messages.pop()
-#     else:
-#         assistant_message: dict = {"role": "assistant", "content": assistant_answer}
-#         st.session_state.messages.append(assistant_message)
-
-# for message in st.session_state.messages:
-#     if message["role"] == "user":
-#         with st.chat_message(name=USER):
-#             st.write(message["content"])
-#     elif message["role"] == "assistant":
-#         with st.chat_message(name=AI):
-#             st.write(message["content"])
+for message in st.session_state.messages:
+    if message["role"] == "user":
+        with st.chat_message(name=USER):
+            st.write(message["content"])
+    elif message["role"] == "assistant":
+        with st.chat_message(name=AI):
+            st.write(message["content"])
 # **************************************************
 
 
@@ -1267,6 +1529,7 @@
 #         st.divider()
 # **************************************************
 
+
 # **************************************************
 # https://www.cdnfonts.com/iransansx.font
 # https://www.cdnfonts.com/iranian-sans.font
@@ -1319,11 +1582,13 @@
 #         st.divider()
 # **************************************************
 
+
 # **************************************************
 # **************************************************
 # **************************************************
 # **************************************************
 # **************************************************
+
 
 # **************************************************
 # import streamlit as st
