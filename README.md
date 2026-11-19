@@ -1,12 +1,14 @@
 # Learning 'streamlit' Package
 
-## This program was developed by
+## This project was developed by
 
 - **Dariush Tasdighi**
+  - From Iran / Tehran
   - Mobile Number: +98 912 108 7461
   - Email Address: <DariushT@GMail.com>
   - Telegram ID: <https://t.me/Dariush_Tasdighi>
-  - Virgool: <https://virgool.io/@dariush-tasdighi>
+  - Github: <https://github.com/dariush-tasdighi>
+  - Virgool: <https://virgool.ir/@dariush-tasdighi>
   - Aparat: <https://www.aparat.com/IranianExperts>
   - LinkedIn: <https://www.linkedin.com/in/tasdighi>
   - Instagram: <https://www.instagram.com/dariushtasdighi>
@@ -14,7 +16,14 @@
     - <https://t.me/IranianExperts>
     - <https://t.me/DT_PYTHON_LEARNING>
 
-## Used Packages
+## Main Packages
+
+### 'ollama' package
+
+- <https://pypi.org/project/ollama>
+- <https://github.com/ollama/ollama-python>
+- **More:**
+  - <https://ollama.com>
 
 ### 'streamlit' package
 
@@ -23,13 +32,6 @@
 - **More:**
   - <https://streamlit.io>
   - <https://docs.streamlit.io>
-
-### 'ollama-python' package
-
-- <https://pypi.org/project/ollama>
-- <https://github.com/ollama/ollama-python>
-- **More:**
-  - <https://ollama.com>
 
 ### 'dotenv-python' package
 
@@ -43,32 +45,61 @@
 # .\.venv\Scripts\activate
 
 # python -m pip list
-# python -m pip install -r .\requirements.3.14.txt -U
+# python -m pip install -r .\requirements.txt -U
 # python -m pip list
 
 # deactivate
 ```
 
 ```bash
-py -3.14 -m venv .venv.3.14
-.\.venv.3.14\Scripts\activate
+# py install 3.13 -u
 
-python -m pip list
-python -m pip install -r .\requirements.3.14.txt -U
-python -m pip list
+# py -3.13 -m venv .venv.3.13
+# .\.venv.3.13\Scripts\activate
+
+# py -m pip list
+# py -m pip install -r .\requirements.3.13.txt -U
+# py -m pip list
+
+# deactivate
+```
+
+```bash
+# py install 3.14 -u
+
+# py -3.14 -m venv .venv.3.14
+# .\.venv.3.14\Scripts\activate
+
+# py -m pip list
+# py -m pip install -r .\requirements.3.14.txt -U
+# py -m pip list
+
+# deactivate
+```
+
+```bash
+py install 3.15 -u
+
+py -3.15 -m venv .venv.3.15
+.\.venv.3.15\Scripts\activate
+
+py -m pip list
+py -m pip install -r .\requirements.3.15.txt -U
+py -m pip list
 
 deactivate
 ```
 
 ## For Publishing
 
-- Self Host / VPS Server
-  - <https://streamlit.io>
-    - <https://streamlit.io/cloud>
-  - Microsoft Azure (Web App)
-  - <https://huggingface.co/new-space> -> Docker
-  - <https://github.com> -> Github Pages -> stlite
-  - VPS
+- Server
+- VPS Server
+- <https://streamlit.io>
+  - <https://streamlit.io/cloud>
+- Microsoft Azure (Web App)
+- <https://huggingface.co/new-space> -> NOT ANY MORE!
+- <https://huggingface.co/new-space> -> Docker -> NOT ANY MORE!
+- <https://github.com> -> Github Pages -> stlite (Java Script Library)
 
 ## For Testing Streamlit (CLI = Command Line Interface)
 
@@ -83,7 +114,7 @@ streamlit run ./streamlit_app.py
 ```
 
 ```shell
-python -m streamlit run ./app.py --server.address 0.0.0.0 --server.port 8000
+python -m streamlit run ./streamlit_app.py --server.address 0.0.0.0 --server.port 8000
 ```
 
 ## Enable 'Open Integrated Browser' in VSCode

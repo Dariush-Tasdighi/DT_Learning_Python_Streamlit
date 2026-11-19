@@ -2,24 +2,29 @@
 # For Running:
 # > python .\streamlit_app.py
 # **************************************************
-import streamlit
+# import streamlit
 
-from rich import print
-from dt_utility import clear_screen
+# from rich import print
 
-clear_screen()
+# from dt_utility import (
+#     clear_screen,
+#     display_main_divider,
+# )
 
-print("=" * 50)
-print(f"Version of 'streamlit' package: {streamlit.__version__}")
-print("=" * 50)
-print()
+# clear_screen()
+# display_main_divider()
+
+# print(f"Version of 'streamlit' package: {streamlit.__version__}")
+
+# display_main_divider()
+# print()
 # **************************************************
 
 
 # **************************************************
-# Notes:
-#
-# 1) app.py / main.py          --> streamlit_app.py
+# Notes
+# **************************************************
+# 1) app.py / main.py / ...    --> streamlit_app.py
 # 2) python ./streamlit_app.py --> streamlit run ./streamlit_app.py
 # **************************************************
 
@@ -28,12 +33,15 @@ print()
 # For Running:
 # > streamlit run ./streamlit_app.py
 # **************************************************
+# می‌توانید به نشانی‌های ذیل مراجعه نمایید HTML, CSS برای یادگیری
 # - https://www.w3schools.com
 #   - https://www.w3schools.com/css/default.asp
 #   - https://www.w3schools.com/html/default.asp
 # **************************************************
 # import streamlit as st
-# from dt_utility import clear_screen
+
+# # است Bad Practice ،Streamlit در پروژه‌های
+# # from dt_utility import clear_screen
 
 # # است Bad Practice ،Streamlit در پروژه‌های
 # # clear_screen()
@@ -104,6 +112,8 @@ print()
 # st.write("###### Dariush Tasdighi (6)")
 # st.divider()
 
+# body: str
+
 # # body = """# Dariush Tasdighi
 # # ## Dariush Tasdighi
 # # ### Dariush Tasdighi
@@ -140,6 +150,11 @@ print()
 # ###### Dariush Tasdighi
 # """
 
+# st.write(body)
+# st.divider()
+
+# st.header(body="Sample (4)")
+
 # st.markdown(body=body)
 # st.divider()
 # **************************************************
@@ -156,7 +171,7 @@ print()
 # - https://streamlit-emoji-shortcodes-streamlit-app-gwckff.streamlit.app
 # - https://dev.to/nikolab/complete-list-of-github-markdown-emoji-markup-5aia
 #
-# Material:
+# Google Material:
 # - https://fonts.google.com/icons?icon.set=Material+Symbols&icon.style=Rounded
 # **************************************************
 # **************************************************
@@ -170,7 +185,7 @@ print()
 # # st.set_page_config(page_title="Dariush Tasdighi", page_icon=":wave:")
 # # st.set_page_config(
 # #     layout="wide",  # Default: "centered"
-# #     page_icon="👋",
+# #     page_icon=":wave:",
 # #     page_title="Dariush Tasdighi",
 # # )
 
@@ -284,9 +299,9 @@ print()
 # **************************************************
 # import streamlit as st
 
-# pressed: bool = st.button(label="Press Me")
+# button_pressed: bool = st.button(label="Press Me")
 
-# if pressed:
+# if button_pressed:
 #     st.write("You pressed the button!")
 # **************************************************
 
@@ -296,13 +311,13 @@ print()
 # **************************************************
 # import streamlit as st
 
-# pressed_1: bool = st.button(label="Button (1)")
-# pressed_2: bool = st.button(label="Button (2)")
+# button_1_pressed: bool = st.button(label="Button (1)")
+# button_2_pressed: bool = st.button(label="Button (2)")
 
-# if pressed_1:
+# if button_1_pressed:
 #     st.write("You pressed the button (1)!")
 
-# if pressed_2:
+# if button_2_pressed:
 #     st.write("You pressed the button (2)!")
 # **************************************************
 
@@ -316,8 +331,8 @@ print()
 
 # if pressed:
 #     st.toast(body="Wow! You did it...", icon="👋")
-#     # st.toast(body="Wow! You did it...", icon="👋", duration="long")
 #     # st.toast(body="Wow! You did it...", icon="👋", duration="short")  # Default: 'short'
+#     # st.toast(body="Wow! You did it...", icon="👋", duration="long")
 #     # st.toast(body="Wow! You did it...", icon="👋", duration="infinite")
 
 #     st.write("You pressed the button!")
@@ -357,17 +372,17 @@ print()
 # **************************************************
 # from dt_utility import clear_screen
 
-# # clear_screen()
+# clear_screen()
 
 # name = ""  # NOK
 # # name = None  # NOK
 # # name = "     "  # OK
 # # name = "Dariush"  # OK
 
-# if name:
+# if name is not None and name != "":
 #     print("Name is not None! and is not Null String.")
 
-# if name is not None and name != "":
+# if name:
 #     print("Name is not None! and is not Null String.")
 # **************************************************
 
@@ -1442,6 +1457,7 @@ print()
 #     st.line_chart(data=data_frame.Close)
 # **************************************************
 
+
 # **************************************************
 # https://www.varzesh3.com
 # https://www.varzesh3.com/news
@@ -1488,6 +1504,7 @@ print()
 
 #         print(message)
 # **************************************************
+
 
 # **************************************************
 # import os

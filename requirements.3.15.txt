@@ -1,8 +1,9 @@
 pip
 rich
 ollama
+streamlit
+python-dotenv
+
 pandas
 requests
 yfinance
-streamlit
-python-dotenv

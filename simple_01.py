@@ -1,12 +1,22 @@
 import streamlit as st
 
-from ollama import chat
 from typing import (
+    Dict,
+    List,
     Final,
     Optional,
 )
 
+from ollama import (
+    chat,
+    ChatResponse,
+)
+
 TITLE: Final[str] = "DT AI Chatbot!"
+
+SYSTEM_PROMPT: Final[str] = """
+You are a helpful AI assistant.
+""".strip()
 
 st.set_page_config(
     page_icon="👋",
@@ -19,7 +29,9 @@ st.header(
     body=f"👋 {TITLE}",
 )
 
-user_prompt = st.text_input(
+# user_prompt: str = input("User: ")
+
+user_prompt: str = st.text_input(
     # NEW
     icon="❓",
     #
@@ -29,12 +41,15 @@ user_prompt = st.text_input(
 user_prompt = user_prompt.strip()
 
 if user_prompt:
-    messages: list[dict] = []
+    messages: List[Dict] = []
 
-    user_message: dict = {"role": "user", "content": user_prompt}
+    system_message: Dict = {"role": "system", "content": SYSTEM_PROMPT}
+    messages.append(system_message)
+
+    user_message: Dict = {"role": "user", "content": user_prompt}
     messages.append(user_message)
 
-    response = chat(
+    response: ChatResponse = chat(
         model="gemma3:1b",
         messages=messages,
     )

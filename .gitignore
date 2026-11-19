@@ -1,7 +1,40 @@
+# Secrets
 .env
+*.key
+*.pem
+.env.*
 
-musics/
+# Virtual Environments
+env/
+venv/
+.venv*/
 
-.venv/
+# VS Code
 .vscode/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Data & Local Files
+data/
+*.rar
+*.zip
+*.log
+*.sqlite3
+db.sqlite3
+
+# Build / Packaging
+dist/
+build/
+*.egg-info/
+
+# Python Cache
+*.py[cod]
 __pycache__/
+.mypy_cache/
+.pytest_cache/
+.ipynb_checkpoints/
+
+# Extra
+musics/
